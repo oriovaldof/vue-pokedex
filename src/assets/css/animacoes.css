@@ -1,0 +1,99 @@
+/*Classes de Transição Padrao do VUE*/
+/*Inicio TRansição de Entrada */
+/* .v-enter-from determina o estado inicial de entrada do elemento html */
+/* .v-enter-from{  */
+.fade-enter-from {
+    opacity: 0;
+}
+
+/* .v-enter-active determina o tempo de transição do estado inicial de entrada do elemento html */
+/* .v-enter-active{ */
+.fade-enter-active {
+    transition: opacity 1s;
+}
+
+/*.v-enter-to determina o estado final de entrada do elemento html */
+/* .v-enter-to{ */
+.fade-enter-to {
+    opacity: 1;
+}
+
+/*fim TRansição de Entrada */
+/*Inicio TRansição de saida */
+/* .v-enter-from determina o estado inicial de saida do elemento html */
+/* .v-leave-from{  */
+.fade-leave-from {
+    opacity: 1;
+}
+
+/* .v-leave-active determina o tempo de transição do estado inicial de saida do elemento html */
+/* .v-leave-active{ */
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+/*.v-leave-to determina o estado final de saida do elemento html */
+/* .v-leave-to{ */
+.fade-leave-to {
+    opacity: 0;
+}
+
+/*FIm TRansição de saida */
+
+/* .v-enter-from { */
+.slide-enter-from {
+    opacity: 0;
+    transform: translateX(-150px);
+}
+
+/* .v-enter-active determina o tempo de transição do estado inicial de entrada do elemento html */
+/* .v-enter-active { */
+.slide-enter-active {
+    transition: all 1s;
+}
+
+/*.v-enter-to determina o estado final de entrada do elemento html */
+/* .v-enter-to { */
+.slide-enter-to {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+/* .v-leave-from { */
+.slide-leave-from {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+/* .v-leave-active determina o tempo de transição do estado inicial de saida do elemento html */
+/* .v-leave-active { */
+.slide-leave-active {
+    transition: all 1s;
+}
+
+/*.v-leave-to determina o estado final de saida do elemento html */
+/* .v-leave-to { */
+.slide-leave-to {
+    opacity: 0;
+    transform: translateX(150px);
+}
+
+/*zomm*/
+.zoom-enter-from{
+transform: scale(0);
+}
+.zoom-enter-active{
+    transition: transform 1s;
+}
+.zoom-enter-to{
+    transform: scale(1);
+}
+.zoom-leave-from{
+    transform: scale(1);
+}
+.zoom-leave-active{
+    transition: transform 1s;
+}
+.zoom-leave-to{
+    transform: scale(0);
+}
