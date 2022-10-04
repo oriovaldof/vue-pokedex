@@ -1,99 +1,229 @@
-/*Classes de Transição Padrao do VUE*/
-/*Inicio TRansição de Entrada */
-/* .v-enter-from determina o estado inicial de entrada do elemento html */
-/* .v-enter-from{  */
-.fade-enter-from {
+/* fade */
+.fade-enter-from, .fade-leave-to {
     opacity: 0;
 }
 
-/* .v-enter-active determina o tempo de transição do estado inicial de entrada do elemento html */
-/* .v-enter-active{ */
-.fade-enter-active {
+.fade-enter-active, .fade-leave-active {
     transition: opacity 1s;
 }
 
-/*.v-enter-to determina o estado final de entrada do elemento html */
-/* .v-enter-to{ */
-.fade-enter-to {
+.fade-enter-to, .fade-leave-from {
     opacity: 1;
 }
 
-/*fim TRansição de Entrada */
-/*Inicio TRansição de saida */
-/* .v-enter-from determina o estado inicial de saida do elemento html */
-/* .v-leave-from{  */
-.fade-leave-from {
-    opacity: 1;
-}
 
-/* .v-leave-active determina o tempo de transição do estado inicial de saida do elemento html */
-/* .v-leave-active{ */
-.fade-leave-active {
-    transition: opacity 0.5s;
-}
-
-/*.v-leave-to determina o estado final de saida do elemento html */
-/* .v-leave-to{ */
-.fade-leave-to {
-    opacity: 0;
-}
-
-/*FIm TRansição de saida */
-
-/* .v-enter-from { */
+/* slide */
 .slide-enter-from {
     opacity: 0;
-    transform: translateX(-150px);
+    transform: translateX(-150px)
 }
 
-/* .v-enter-active determina o tempo de transição do estado inicial de entrada do elemento html */
-/* .v-enter-active { */
-.slide-enter-active {
-    transition: all 1s;
+.slide-enter-active, .slide-leave-active {
+transition: all 1s;
 }
 
-/*.v-enter-to determina o estado final de entrada do elemento html */
-/* .v-enter-to { */
-.slide-enter-to {
+.slide-enter-to, .slide-leave-from {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateX(0px)
 }
 
-/* .v-leave-from { */
-.slide-leave-from {
-    opacity: 1;
-    transform: translateX(0px);
-}
-
-/* .v-leave-active determina o tempo de transição do estado inicial de saida do elemento html */
-/* .v-leave-active { */
-.slide-leave-active {
-    transition: all 1s;
-}
-
-/*.v-leave-to determina o estado final de saida do elemento html */
-/* .v-leave-to { */
 .slide-leave-to {
     opacity: 0;
-    transform: translateX(150px);
+    transform: translateX(150px)
 }
 
-/*zomm*/
-.zoom-enter-from{
-transform: scale(0);
-}
-.zoom-enter-active{
-    transition: transform 1s;
-}
-.zoom-enter-to{
-    transform: scale(1);
-}
-.zoom-leave-from{
-    transform: scale(1);
-}
-.zoom-leave-active{
-    transition: transform 1s;
-}
-.zoom-leave-to{
+/* zoom */
+.zoom-enter-from {
     transform: scale(0);
+}
+
+.zoom-enter-active {
+    transition: transform 1s;
+}
+
+.zoom-enter-to {
+    transform: scale(1);
+}
+
+.zoom-leave-from {
+    transform: scale(1);
+}
+
+.zoom-leave-active {
+    transition: transform 1s;
+}
+
+.zoom-leave-to {
+    transform: scale(0);
+}
+
+/* flip */
+.flip-enter-active {
+    animation: flipCustomizado 2s;
+}
+
+.flip-leave-active {
+    animation: flipCustomizado 2s reverse;
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(-80deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes flipCustomizado {
+    0% {
+        transform: rotateY(-80deg);
+    }
+    25% {
+        transform: rotateY(-75deg);
+    }
+    50% {
+        transform: rotateY(-25deg);
+    }
+    100% {
+        transform: rotateY(-0deg);
+    }
+}
+
+/* animacao1 */
+.animacao1-enter-active, .animacao1-leave-active {
+    animation: animacao1 5s ease 0s infinite normal forwards;
+}
+
+@keyframes animacao1 {
+    0.0%{
+        transform: scale(1) translate(-100px, 0) skew(0deg);
+    }
+    39.9%{
+        transform: scale(1) translate(100px, 0) skew(-5deg);
+    }
+    45.3%{
+        transform: scale(1) translate(100px, -6px) skew(0deg);
+    }
+    5.1%{
+        transform: scale(1) translate(-100px, 0) skew(-12deg);
+    }
+    50.3%{
+        transform: scale(1) translate(100px, 0px) skew(0deg);
+    }
+    55.3%{
+        transform: scale(1) translate(100px, -10px) skew(0deg);
+    }
+    60.3%{
+        transform: scale(1) translate(100px, 0px) skew(5deg);
+    }
+    95.1%{
+        transform: scale(1) translate(-100px, 0) skew(12deg);
+    }
+    99.6%{
+        transform: scale(1) translate(-100px, 0) skew(0deg);
+    }
+}
+
+/* combinando transition e animation */
+/* pulo */
+.pulo-enter-from {
+    opacity: 0;
+}
+
+.pulo-enter-active {
+    animation: pulo 2s;
+    transition: 1.5s;
+}
+
+.pulo-enter-to {
+    opacity: 1;
+}
+
+.pulo-leave-from {
+    opacity: 1;
+}
+
+.pulo-leave-active {
+    transition: opacity 1s;
+    animation: pulo 1s;
+}
+
+.pulo-leave-to {
+    opacity: 0;
+}
+
+@keyframes pulo {
+    0%   { transform: scale(1,1)      translateY(0); }
+    10%  { transform: scale(1.1,.9)   translateY(0); }
+    30%  { transform: scale(.9,1.1)   translateY(-30px); }
+    50%  { transform: scale(1.05,.95) translateY(0); }
+    57%  { transform: scale(1,1)      translateY(-8px); }
+    64%  { transform: scale(1,1)      translateY(0); }
+    100% { transform: scale(1,1)      translateY(0); }
+}
+
+/* slide de cima para baixo (utilizand nomes de classes customizados) */
+.abacaxi {
+    opacity: 0;
+    transform: translateY(-150px)
+}
+
+.entrada-estado-final {
+    opacity: 1;
+    transform: translateY(0px)
+}
+
+.saida-estado-inicial {
+    opacity: 1;
+    transform: translateY(0px)
+}
+
+.xyz {
+    opacity: 0;
+    transform: translateY(50px)
+}
+
+.transicao {
+    transition: all 2s;
+}
+
+
+/* transition-group lista que terá um efeito de slide */
+.lista-enter-from {
+    opacity: 0;
+    transform: translateX(-150px)
+}
+
+.lista-enter-active {
+    transition: all 1s;
+}
+
+.lista-enter-to {
+    opacity: 1;
+    transform: translateX(0px)
+}
+
+.lista-leave-from {
+    opacity: 1;
+    transform: translateX(0px)
+}
+
+.lista-leave-active {
+    transition: all 1s;
+    position: absolute;
+}
+
+.lista-leave-to {
+    opacity: 0;
+    transform: translateX(150px)
+}
+
+.lista-move {
+    transition: all 1s;
+}
+
+/* transition-group para o filtro ordenacao */
+.ordenacao-move {
+    transition: all 2s;
 }
